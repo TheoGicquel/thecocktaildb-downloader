@@ -65,6 +65,9 @@ const fetchDrink = async (id: number): Promise<Drink | undefined> => {
       console.log(e);
     }
   }
+  // quick and dirty way to prevent the API from being overloaded
+  const sleep = (ms: number | undefined) => new Promise(r => setTimeout(r, ms));
+  await sleep(1000);
 
   return drink;
 };
